@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard – PhysioPosses Agenda</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>➕</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#1976D2', sidebar: '#1565C0' } } } }</script>
+<style>
+  body { font-family: 'Inter', sans-serif; }
+  .input { width:100%; border:1px solid #D1D5DB; border-radius:8px; padding:.6rem .75rem; font-size:.9rem; background:#fff; outline:none; transition:border-color .15s, box-shadow .15s; }
+  .input:focus { border-color:#1976D2; box-shadow:0 0 0 3px rgba(25,118,210,.15); }
+  .label { display:block; font-size:.85rem; font-weight:500; color:#374151; margin-bottom:.35rem; }
+  .badge { display:inline-block; padding:.15rem .6rem; border-radius:9999px; font-size:.75rem; font-weight:600; }
+</style>
+</head>
+<body class="bg-[#F5F5F5] text-gray-800 antialiased">
+
+<!-- Overlay mobile -->
+<div id="overlay" class="fixed inset-0 bg-black/40 z-30 hidden md:hidden" onclick="toggleSidebar()"></div>
+<!-- Sidebar -->
+<aside id="sidebar" class="fixed top-0 left-0 h-full w-[220px] bg-[#1565C0] text-white flex-col z-40 hidden md:flex">
+  <div class="px-5 py-5 border-b border-white/15 flex items-center justify-between">
+    <a href="./dashboard.html" class="flex items-center gap-2 font-bold text-[15px] leading-tight"><span class="text-xl">➕</span><span>PhysioPosses<br><span class="font-medium text-blue-100 text-xs">Agenda</span></span></a>
+    <button class="md:hidden text-white/80 hover:text-white text-2xl leading-none" onclick="toggleSidebar()" aria-label="Fechar menu">&times;</button>
+  </div>
+  <nav class="flex-1 px-3 py-4 space-y-1">
+    <a href="./dashboard.html" aria-current="page" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition bg-[#1976D2] text-white shadow"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"/></svg><span>Dashboard</span></a><a href="./agenda.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition text-blue-100 hover:bg-white/10 hover:text-white"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg><span>Agenda</span></a><a href="./pacientes.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition text-blue-100 hover:bg-white/10 hover:text-white"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg><span>Pacientes</span></a><a href="./configuracoes.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition text-blue-100 hover:bg-white/10 hover:text-white"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 010 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 010-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg><span>Configurações</span></a>
+  </nav>
+  <div class="px-4 py-4 border-t border-white/15 flex items-center gap-3">
+    <div class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg></div>
+    <div class="flex-1 min-w-0"><p class="text-sm font-semibold">Secretária</p><p class="text-xs text-blue-100">Recepção</p></div>
+    <a href="./login.html" title="Sair" class="text-blue-100 hover:text-white"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"/></svg></a>
+  </div>
+</aside>
+<!-- Topbar mobile -->
+<header class="md:hidden sticky top-0 z-20 bg-[#1565C0] text-white flex items-center gap-3 px-4 py-3 shadow">
+  <button onclick="toggleSidebar()" aria-label="Abrir menu" class="p-1">
+    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+  </button>
+  <span class="font-bold">➕ PhysioPosses Agenda</span>
+</header>
+<main class="md:ml-[220px] min-h-screen p-4 sm:p-6 lg:p-8">
+
+<div class="mb-6">
+  <h1 class="text-2xl font-bold text-gray-800">Bom dia, Secretária 👋</h1>
+  <p class="text-sm text-gray-500 mt-1">Terça-feira, 12 de novembro de 2024</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-6"><div class="bg-white rounded-xl shadow-sm border-t-4 p-5 flex items-center gap-4" style="border-top-color:#1976D2"><div class="w-12 h-12 rounded-lg flex items-center justify-center text-2xl" style="background:#1976D21A">🗓</div><div><p class="text-3xl font-bold text-gray-800">8</p><p class="text-sm text-gray-500">Atendimentos Hoje</p></div></div><div class="bg-white rounded-xl shadow-sm border-t-4 p-5 flex items-center gap-4" style="border-top-color:#4CAF50"><div class="w-12 h-12 rounded-lg flex items-center justify-center text-2xl" style="background:#4CAF501A">✅</div><div><p class="text-3xl font-bold text-gray-800">5</p><p class="text-sm text-gray-500">Confirmados</p></div></div><div class="bg-white rounded-xl shadow-sm border-t-4 p-5 flex items-center gap-4" style="border-top-color:#FFC107"><div class="w-12 h-12 rounded-lg flex items-center justify-center text-2xl" style="background:#FFC1071A">⏳</div><div><p class="text-3xl font-bold text-gray-800">2</p><p class="text-sm text-gray-500">Pendentes</p></div></div><div class="bg-white rounded-xl shadow-sm border-t-4 p-5 flex items-center gap-4" style="border-top-color:#9E9E9E"><div class="w-12 h-12 rounded-lg flex items-center justify-center text-2xl" style="background:#9E9E9E1A">❌</div><div><p class="text-3xl font-bold text-gray-800">1</p><p class="text-sm text-gray-500">Cancelados</p></div></div></div>
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
+  <section class="xl:col-span-2 bg-white rounded-xl shadow-sm overflow-hidden">
+    <h2 class="px-5 py-4 text-base font-semibold text-gray-800 border-b border-gray-100">Atendimentos do Dia</h2>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm text-left">
+        <thead class="bg-gray-50 text-xs uppercase text-gray-500"><tr><th class="px-4 py-3">Horário</th><th class="px-4 py-3">Paciente</th><th class="px-4 py-3">Profissional</th><th class="px-4 py-3">Tipo</th><th class="px-4 py-3">Status</th></tr></thead>
+        <tbody><tr class="border-t border-gray-100 hover:bg-gray-50"><td class="px-4 py-3 font-medium">08:00</td><td class="px-4 py-3 font-semibold text-gray-800">Maria Silva</td><td class="px-4 py-3 text-gray-600">Dr. João Ferreira</td><td class="px-4 py-3 text-gray-600">Fisioterapia Geral</td><td class="px-4 py-3"><span class="badge bg-[#4CAF50] text-white">Confirmado</span></td></tr><tr class="border-t border-gray-100 hover:bg-gray-50"><td class="px-4 py-3 font-medium">09:00</td><td class="px-4 py-3 font-semibold text-gray-800">Carlos Souza</td><td class="px-4 py-3 text-gray-600">Dr. João Ferreira</td><td class="px-4 py-3 text-gray-600">RPG</td><td class="px-4 py-3"><span class="badge bg-[#FFC107] text-gray-900">Pendente</span></td></tr><tr class="border-t border-gray-100 hover:bg-gray-50"><td class="px-4 py-3 font-medium">10:00</td><td class="px-4 py-3 font-semibold text-gray-800">Ana Oliveira</td><td class="px-4 py-3 text-gray-600">Dr. João Ferreira</td><td class="px-4 py-3 text-gray-600">Pilates Terapêutico</td><td class="px-4 py-3"><span class="badge bg-[#4CAF50] text-white">Confirmado</span></td></tr><tr class="border-t border-gray-100 hover:bg-gray-50"><td class="px-4 py-3 font-medium">11:00</td><td class="px-4 py-3 font-semibold text-gray-800">Pedro Lima</td><td class="px-4 py-3 text-gray-600">Dra. Paula Mendes</td><td class="px-4 py-3 text-gray-600">Reabilitação</td><td class="px-4 py-3"><span class="badge bg-[#FFC107] text-gray-900">Pendente</span></td></tr><tr class="border-t border-gray-100 hover:bg-gray-50"><td class="px-4 py-3 font-medium">14:00</td><td class="px-4 py-3 font-semibold text-gray-800">Lucia Martins</td><td class="px-4 py-3 text-gray-600">Dra. Paula Mendes</td><td class="px-4 py-3 text-gray-600">Fisioterapia Geral</td><td class="px-4 py-3"><span class="badge bg-[#4CAF50] text-white">Confirmado</span></td></tr><tr class="border-t border-gray-100 hover:bg-gray-50"><td class="px-4 py-3 font-medium">15:00</td><td class="px-4 py-3 font-semibold text-gray-800">Roberto Alves</td><td class="px-4 py-3 text-gray-600">Dr. João Ferreira</td><td class="px-4 py-3 text-gray-600">Fisioterapia Geral</td><td class="px-4 py-3"><span class="badge bg-[#4CAF50] text-white">Confirmado</span></td></tr><tr class="border-t border-gray-100 hover:bg-gray-50"><td class="px-4 py-3 font-medium">16:00</td><td class="px-4 py-3 font-semibold text-gray-800">Fernanda Costa</td><td class="px-4 py-3 text-gray-600">Dra. Paula Mendes</td><td class="px-4 py-3 text-gray-600">RPG</td><td class="px-4 py-3"><span class="badge bg-[#4CAF50] text-white">Confirmado</span></td></tr><tr class="border-t border-gray-100 hover:bg-gray-50"><td class="px-4 py-3 font-medium">17:00</td><td class="px-4 py-3 font-semibold text-gray-800">Marcos Teixeira</td><td class="px-4 py-3 text-gray-600">Dr. João Ferreira</td><td class="px-4 py-3 text-gray-600">Reabilitação</td><td class="px-4 py-3"><span class="badge bg-[#9E9E9E] text-white">Cancelado</span></td></tr></tbody>
+      </table>
+    </div>
+  </section>
+  <aside class="bg-white rounded-xl shadow-sm p-5 h-fit">
+    <h2 class="text-base font-semibold text-gray-800 mb-3">Alertas</h2>
+    <div class="bg-[#FFF3E0] border border-[#FF9800] rounded-lg p-4 text-sm text-[#E65100]">
+      <p class="font-semibold mb-2">⚠️ 2 pacientes ainda não confirmaram o atendimento de amanhã:</p>
+      <p>• Carlos Souza (09:00)</p>
+      <p>• Pedro Lima (11:00)</p>
+    </div>
+    <button id="btn-lembretes" class="mt-4 w-full bg-[#FF9800] hover:bg-[#F57C00] text-white font-semibold py-2.5 rounded-lg transition">🔔 Enviar Lembretes</button>
+  </aside>
+</div>
+
+</main>
+<script>
+function toggleSidebar() {
+  var s = document.getElementById('sidebar'), o = document.getElementById('overlay');
+  var open = s.classList.contains('flex') && s.classList.contains('max-md-open');
+  if (open) { s.classList.remove('flex', 'max-md-open'); s.classList.add('hidden'); o.classList.add('hidden'); }
+  else { s.classList.remove('hidden'); s.classList.add('flex', 'max-md-open'); o.classList.remove('hidden'); }
+}
+document.getElementById('btn-lembretes').addEventListener('click', function () { alert('✓ Lembretes enviados com sucesso!'); });</script>
+</body>
+</html>
