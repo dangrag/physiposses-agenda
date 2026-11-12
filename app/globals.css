@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 13% 18%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 18%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 18%;
+
+    --primary: 210 79% 46%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 14% 96%;
+    --secondary-foreground: 220 13% 18%;
+
+    --muted: 210 14% 96%;
+    --muted-foreground: 220 9% 44%;
+
+    --accent: 210 14% 96%;
+    --accent-foreground: 220 13% 18%;
+
+    --destructive: 14 100% 57%;
+    --destructive-foreground: 0 0% 16%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 210 79% 46%;
+
+    --radius: 0.625rem;
+    --radius-sm: calc(0.625rem - 4px);
+    --radius-lg: calc(0.625rem + 4px);
+    --radius-full: 9999px;
+
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-2xl: 48px;
+    --spacing-3xl: 64px;
+
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.03), 0 1px 3px 0 rgb(0 0 0 / 0.06);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+
+    --duration-fast: 150ms;
+    --duration-normal: 250ms;
+    --duration-slow: 350ms;
+
+    --chart-1: 210 79% 46%;
+    --chart-2: 122 39% 49%;
+    --chart-3: 45 100% 51%;
+    --chart-4: 14 100% 57%;
+    --chart-5: 0 0% 62%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

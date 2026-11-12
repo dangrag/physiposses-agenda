@@ -2,36 +2,63 @@
 
 Protótipo navegável de um sistema web de agendamento e gestão de pacientes para a **PhysioPosses**, uma clínica de fisioterapia de pequeno porte localizada em Cariacica/ES.
 
-Projeto desenvolvido como **Atividade Prática Profissional** do curso de **Análise e Desenvolvimento de Sistemas (ADS)** — Centro Universitário Multivix.
+Este projeto foi desenvolvido como parte da **Atividade Prática Profissional** do curso de **Análise e Desenvolvimento de Sistemas (ADS)** do Centro Universitário Multivix.
 
-## Sobre o projeto
+## 📋 Sobre o projeto
 
-O sistema foi proposto para resolver os principais gargalos operacionais da clínica:
+O sistema foi proposto para resolver os principais gargalos operacionais da clínica, identificados no sistema utilizado atualmente:
 
-- **Agendamentos instáveis** — registros que somem ou se alteram sozinhos no sistema atual
-- **Comunicação manual** — lembretes de consulta enviados um a um pelo WhatsApp
-- **Cadastro fragmentado** — dados do paciente espalhados em várias abas
+- **Agendamentos instáveis** — registros que somem ou se alteram sozinhos;
+- **Comunicação manual** — lembretes de consulta enviados um a um pelo WhatsApp;
+- **Cadastro fragmentado** — dados do paciente espalhados em várias abas.
 
-## Telas navegáveis
+## ✨ Funcionalidades (telas navegáveis)
 
-- **Login** — acesso ao sistema
-- **Dashboard** — indicadores do dia, atendimentos e alertas
-- **Agenda** — calendário mensal com status por cor
-- **Novo Agendamento** — formulário com busca de paciente
-- **Pacientes** — listagem e busca
-- **Novo Paciente** — cadastro unificado em tela única
+- **Login** — tela de acesso ao sistema
+- **Painel (Dashboard)** — indicadores do dia, lista de atendimentos e alertas de confirmação
+- **Agenda** — calendário mensal com agendamentos coloridos por status
+- **Novo Agendamento** — formulário com busca de paciente e lembrete automático
+- **Pacientes** — listagem de pacientes cadastrados
+- **Novo Paciente** — cadastro unificado em uma única tela
 - **Configurações** — ajustes do sistema
 
-> Protótipo de demonstração com dados fictícios. Sem banco de dados ou autenticação real.
+> ⚠️ Este é um **protótipo de demonstração**: todos os dados são fictícios (`lib/data.ts`). Não há banco de dados, autenticação real ou envio real de mensagens.
 
-## Tecnologias
+## 🛠️ Tecnologias
 
-- Next.js (App Router) / React / TypeScript
-- Tailwind CSS
-- Recharts (gráficos)
+- [Next.js](https://nextjs.org/) (App Router)
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/) (animações)
+- [Recharts](https://recharts.org/) (gráficos)
 
-## Autor
+## 🚀 Como executar localmente
 
-Danilo — ADS — Centro Universitário Multivix
+Pré-requisitos: Node.js 18+ e [Yarn](https://yarnpkg.com/).
 
-_Projeto acadêmico. Dados de pacientes fictícios._
+```bash
+# 1. Instalar as dependências
+yarn install
+
+# 2. Rodar em modo de desenvolvimento
+yarn dev
+
+# 3. Abrir no navegador
+# http://localhost:3000
+```
+
+## 📦 Build de produção
+
+```bash
+yarn build
+yarn start
+```
+
+## 👤 Autor
+
+Danilo — Curso de Análise e Desenvolvimento de Sistemas (ADS) — Centro Universitário Multivix.
+
+---
+
+_Projeto acadêmico, sem fins comerciais. Todos os dados de pacientes são fictícios._
